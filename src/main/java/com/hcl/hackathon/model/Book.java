@@ -1,32 +1,23 @@
 package com.hcl.hackathon.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
- 
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
- 
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
- 
+import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="Book")
-public class Book {
-    
+public class Book implements Serializable{
     
     @Id
-    @JsonProperty
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "UUID", nullable = false)
     private int UUID;
     @JsonProperty
